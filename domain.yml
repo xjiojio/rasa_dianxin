@@ -1,31 +1,68 @@
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-
+%YAML 1.1
+---
 actions:
-- utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
+- request_search
+- inform_time
+- goodbye
+
+- action_search_consume
+- utter_ack_management
+- utter_ask_morehelp
+- utter_ask_package
+- utter_ask_time
+- utter_default
 - utter_goodbye
-
+- utter_greet
+- utter_thanks
+entities:
+- item
+- phone_number
+- price
+- time
+intents:
+- inform_time
+- request_search
+- goodbye
+- greet
+- confirm
+- thanks
+- inform_item
+- inform_package
+- request_management
+- deny
+- inform_current_phone
+slots:
+  item:
+    type: text
+  phone_number:
+    type: text
+  price:
+    type: text
+  time:
+    type: text
 templates:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great carry on!"
-
+  utter_ack_management:
+  - text: 已经为您办理好了{item}
+  utter_ask_morehelp:
+  - text: 还有什么能帮您吗
+  - text: 您还想干什么
+  utter_ask_package:
+  - text: 我们现在支持办理流量套餐：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？
+  - text: 我们有如下套餐供您选择：套餐一：二十元包月三十兆；套餐二：四十元包月八十兆，请问您需要哪个？
+  utter_ask_time:
+  - text: 你想查哪个时间段的
+  - text: 你想查几月份的
+  utter_default:
+  - text: 您说什么
+  - text: 您能再说一遍吗，我没听清
   utter_goodbye:
-  - text: "Bye"
+  - text: 再见，为您服务很开心
+  - text: Bye， 下次再见
+  utter_greet:
+  - text: 您好!，我是机器人小热，很高兴为您服务。
+  - text: 你好!，我是小热，可以帮您办理流量套餐，话费查询等业务。
+  - text: hi!，人家是小热，有什么可以帮您吗。
+  utter_thanks:
+  - text: 不用谢
+  - text: 我应该做的
+  - text: 您开心我就开心
